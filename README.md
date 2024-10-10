@@ -13,3 +13,4 @@ Dependencies:
 Run:
 
     python main.py
+Read the pdf To know what my system can diagnosis
