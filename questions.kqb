@@ -1,0 +1,64 @@
+
+fever2($ans)
+    How bad is the fever?
+    --- 
+    $ans = integer(0-3)
+
+
+stains2($ans)
+What frequency of spots on the skin?
+    ---
+    $ans = integer(0-3)
+	
+musclepain($ans)
+    How often does muscle pain occur?
+    ---
+    $ans = integer(0-3)
+	
+jointpain2($ans)
+    What is the intensity and frequency/intensity of joint pain?
+    ---
+    $ans = integer(0-3)
+
+
+conjuntivite($ans)
+    Do you have conjunctivitis?
+    ---
+    $ans = yn
+
+
+jointswelling2($ans)
+   What is the intensity of joint swelling?
+    ---
+	$ans = integer(0-3)
+ 
+
+
+
+headache2($ans)
+    What is the intensity/frequency of the headaches?
+    ---
+   $ans = integer(0-3)	
+
+
+itch2($ans)
+    How intense is the skin sensitivity (itch)?
+    ---
+    $ans = integer(0-3)		
+
+shortnessofbreath($ans)
+    What is the intensity of shortness of breath?
+    ---
+    $ans = integer(0-3)
+
+
+Crack($ans)
+    How often do crack on the skin  appear?
+    ---
+    $ans = integer(0-3)
+	
+Neurologicalacromethimation($ans)
+    Does you have  any problems neurological?
+    ---
+    $ans = yn
+	

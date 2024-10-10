@@ -1,0 +1,201 @@
+diagnosis
+		use diagnosis($result)
+
+		when
+
+			diagnosis1 ($result1)
+
+			int_shortnessofbreath ($shortnessofbreath)
+
+			int_Crack ($cracksikin)
+
+			$result = list(sum($result1,sum($shortnessofbreath,$cracksikin)))
+
+
+diagnosis1
+	use diagnosis1($result1)
+
+	when
+
+		int_fever($fever2)
+
+		int_stains($stains2)
+
+		int_musclepain($musclepain)
+
+		freq_jointpain($articular2)
+
+		tem_conjuntivite($conjuntivite)
+
+		int_arthriticedema($arthritic_edema)
+
+		int_headache($headache)
+
+		int_Neurologicalacromethimation($acometimentoneurologico)
+
+		int_itch($itcha)
+
+		$result1 = sum($fever2,sum($stains2,sum($musclepain,sum($articular2,sum($conjuntivite,sum($arthritic_edema,sum($acometimentoneurologico,sum($headache,$itcha))))))))
+
+
+
+int_fever
+    use int_fever ($intfever)
+    when
+        questions.fever2($ans_fever2)
+
+        $intfever = Ffever_stains ($ans_fever2)
+
+
+int_stains
+    use int_stains ($intstains)
+    when
+        questions.stains2($ans_stains2)
+
+        $intstains = Ffever_stains ($ans_stains2)
+
+
+int_musclepain
+    use int_musclepain ($intmusclepain)
+    when
+        questions.musclepain($ans_s_musc)
+
+        $intmusclepain = Fpain_muscular ($ans_s_musc)
+
+
+freq_jointpain
+    use freq_jointpain ($intjointpain)
+    when
+        questions.jointpain2($ans_dor_art2)
+
+        $intjointpain = Fs_articular2 ($ans_dor_art2)
+
+
+tem_conjuntivite
+    use tem_conjuntivite ($temconjuntivite)
+    when
+        questions.conjuntivite($ans_conjuntivite)
+
+        $temconjuntivite = Fconjuntivite ($ans_conjuntivite)
+
+
+
+
+int_arthriticedema
+    use int_arthriticedema ($intedemart)
+    when
+        questions.jointswelling2($ans_edemart)
+
+        $intedemart = Fjointswelling2 ($ans_edemart)
+
+int_headache
+	use int_headache ($intheadache)
+	when
+		questions.headache2($ans_headache)
+
+		$intheadache = Fintheadache2 ($ans_headache)
+
+
+int_itch
+	use int_itch ($intitch)
+	when
+		questions.itch2($ans_itch)
+
+		$intitch = Fintitch ($ans_itch)
+
+int_Neurologicalacromethimation
+	use int_Neurologicalacromethimation ($intNeurologicalacromethimation)
+	when
+		questions.Neurologicalacromethimation($ans_Neurologicalacromethimation)
+
+		$intNeurologicalacromethimation = FNeurologicalacromethimation ($ans_Neurologicalacromethimation)
+
+
+int_shortnessofbreath
+	use int_shortnessofbreath ($intshortnessofbreath)
+	when
+		questions.shortnessofbreath($ans_shortnessofbreath)
+		$intshortnessofbreath = Fshortnessofbreath ($ans_shortnessofbreath)
+
+int_Crack
+	use int_Crack ($intCrack)
+	when
+		questions.Crack($ans_Crack)
+		$intCrack = FCrack ($ans_Crack)
+
+
+
+bc_extras
+
+		def sum (tuple1, tuple2):
+			list1 = list(tuple1)
+			list2 = list(tuple2)
+			list1[0] = list1[0] + list2[0]
+			list1[1] = list1[1] + list2[1]
+			list1[2] = list1[2] + list2[2]
+			list1[3] = list1[3] + list2[3]
+			return tuple(list1)
+
+
+		def Ffever_stains(n):
+			if n == 0: return (0, 0, 0, 1)
+			if n == 1: return (1, 0, 0, 0)
+			if n == 2: return (0, 0, 2, 0)
+			if n == 3: return (1, 3, 1, 0)
+
+
+		def Fpain_muscular(n):
+			if n == 0: return (0, 0, 0, 1)
+			if n == 1: return (0, 0, 2, 0)
+			if n == 2: return (0, 2, 0, 0)
+			if n == 3: return (3, 0, 0, 0)
+
+
+		def Fs_articular2(n):
+			if n == 0: return (0, 0, 0, 1)
+			if n == 1: return (1, 0, 0, 0)
+			if n == 2: return (0, 1, 0, 0)
+			if n == 3: return (0, 0, 2, 0)
+
+
+		def Fjointswelling2(n):
+			if n == 0: return (1, 0, 0, 1)
+			if n == 1: return (0, 1, 0, 0)
+			if n == 2: return (0, 0, 2, 0)
+			if n == 3: return (0, 0, 2, 0)
+
+
+		def Fconjuntivite(bolean):
+
+			if bolean == True: return (0,2,1,0)
+			if bolean == False: return (1,0,0,2)
+
+		def Fintheadache2(n):
+			if n == 0: return (1, 0, 0, 2)
+			if n == 1: return (0, 0, 0, 1)
+			if n == 2: return (0, 1, 1, 0)
+			if n == 3: return (2, 0, 0, 0)
+
+		def Fintitch(n):
+			if n == 0: return (0, 0, 0, 1)
+			if n == 1: return (1, 0, 0, 0)
+			if n == 2: return (0, 1, 1, 0)
+			if n == 3: return (0, 2, 1, 0)
+
+
+		def FNeurologicalacromethimation(bolean):
+			if bolean == True: return (0,2,0,1)
+			if bolean == False: return(1,0,2,0)
+
+
+		def Fshortnessofbreath(n):
+			if n == 0: return (0, 0, 0, 1)
+			if n == 1: return (1, 0, 0, 0)
+			if n == 2: return (0, 0, 1, 0)
+			if n == 3: return (0, 2, 0, 0)
+
+		def FCrack(n):
+			if n == 0: return (0, 1, 0, 0)
+			if n == 1: return (1, 0, 1, 0)
+			if n == 2: return (1, 0, 0, 0)
+			if n == 3: return (0, 0, 0, 1)
